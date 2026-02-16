@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHWM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <style>
+        /* Dynamiczny tekst dla drive usage */
+        #drive_usage::before {
+            content: attr(data-usage);
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="mainbox">
+        <div id="title">
+            <h1>Frutiger Hardware Monitor</h1>
+        </div>
+        <div id="usage">
+            <div id="actual_usage">
+                <h1>CPU Usage %</h1>
+                <progress value="0" max="100"></progress>
+            </div>
+            <div id="actual_usage">
+                <h1>RAM Usage %</h1>
+                <progress value="0" max="100"></progress>
+            </div>
+            <div id="actual_usage">
+                <h1>GPU Usage</h1>
+                <progress value="0" max="100"></progress>
+            </div>
+        </div>
+        <div id="drive_usage" data-usage="0GB / 0GB">
+            <progress value="0" max="100"></progress>
+        </div>
+        <div id="temperatures">
+            <div id="temperatures_title">
+                <span>Temperature</span>
+            </div>
+            <div id="actual_temperature">
+                <table id="tabelka1">
+                    <tr>
+                        <th>CPU</th>
+                        <th>0°C</th>
+                    </tr>
+                    <tr>
+                        <th>GPU</th>
+                        <th>0°C</th>
+                    </tr>
+                    <tr>
+                        <th>SSD</th>
+                        <th>0°C</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="cpu_history">
+            <div id="logged_user">
+                <span>Process Monitor</span>
+            </div>
+            <div id="proces_monitor">
+                <table id="tabelka">
+                    <tr>
+                        <th>Process name</th>
+                        <th>CPU</th>
+                        <th>RAM</th>
+                        <th>GPU</th>
+                    </tr>
+                    <tr>
+                        <td>Loading...</td>
+                        <td>0%</td>
+                        <td>0%</td>
+                        <td>0%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="network">
+            <h1>Connecting...</h1>
+        </div>
+    </div>
+    
+    <!-- Dodany skrypt do dynamicznej aktualizacji -->
+    <script src="metrics.js"></script>
+</body>
+</html>

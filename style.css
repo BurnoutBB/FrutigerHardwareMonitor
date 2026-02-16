@@ -1,0 +1,216 @@
+@font-face {
+  font-family: "Trzcionka";
+  src: url(Qilka-Bold\ copy.otf) format("truetype");
+}
+body{
+    background-image: url(tlo.jpg) ;
+    color: rgb(138, 212, 255);
+    font-family: Trzcionka;
+    
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.mainbox{
+    box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.6); /* Zmniejszona opacity z 1.0 na 0.5 */
+    height: 800px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    background: linear-gradient(0deg, 
+    rgba(0, 175, 245, 0.6) 1%, 
+    rgba(35, 148, 171, 0.6) 100%);
+    transform: translateZ(0); 
+}
+
+/* Gradient dla wszystkich h1 - BEZ outline */
+h1 {
+    background: linear-gradient(0deg,
+        rgba(96, 177, 209, 1) 1%,
+        rgba(255, 255, 255, 1) 100%);
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    float: left;
+    height: 80px;
+    width: 100%;
+    
+    background: linear-gradient(0deg,
+        rgb(0, 183, 255) 1%,
+        rgba(255, 255, 255, 1) 100%);
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#usage{
+    float: left;
+    width: 100%;
+    height: 140px;
+}
+#drive_usage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    float: left;
+    clear: both;
+    width: 100%;
+    height: 100px;
+    position: relative; /* Dodane dla pozycjonowania tekstu */
+}
+
+/* Wrapper dla progressu dysku z tekstem - używamy attr(data-usage) */
+#drive_usage::before {
+    content: attr(data-usage); /* Dynamiczny tekst z atrybutu data-usage */
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(166, 231, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    pointer-events: none;
+}
+
+#temperatures{
+    width: 50%;
+    height: 420px;
+    float: left;
+}
+#cpu_history{
+    float: left;
+    width: 50%;
+    height: 420px;
+}
+#actual_usage{
+    float: left;
+    width: 33.33333%;
+    height: 100%;
+    text-align: center;
+}
+progress{
+    width: 90%;
+    height: 60px;
+}
+#temperatures_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    font-size: 36px;
+    
+    background: linear-gradient(0deg,
+        rgb(0, 183, 255) 1%,
+        rgba(255, 255, 255, 1) 100%);
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#logged_user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    font-size: 36px;
+    
+    background: linear-gradient(0deg,
+        rgb(0, 183, 255) 1%,
+        rgba(255, 255, 255, 1) 100%);
+    filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#drive_usage progress{
+    height: 65px;
+    width: 95%;
+}
+#proces_monitor{
+    height: 360px;
+    width: 100%;
+    overflow-y: auto; /* Dodane przewijanie jeśli za dużo procesów */
+}
+table{
+    font-size: 22px;
+    border-collapse: collapse;
+    width: 100%;
+}
+#tabelka1{
+    text-align: center;
+    border-collapse: collapse;
+}
+#network{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    height: 50px;
+    width: 100%;
+}
+
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 90%;
+  height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(200, 200, 200, 0.3); /* Przyciemnione tło - było #eee */
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  border-radius: 10px;
+  transition: width 0.3s ease; /* Płynna animacja zmiany wartości */
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  border-radius: 10px;
+}
+#actual_temperature{
+    height:350px;
+    width: 100%;
+}
+#actual_temperature table{
+    font-size: 50px;
+}
+
+/* Stylizacja scrollbara dla monitora procesów */
+#proces_monitor::-webkit-scrollbar {
+    width: 8px;
+}
+
+#proces_monitor::-webkit-scrollbar-track {
+    background: rgba(200, 200, 200, 0.1);
+    border-radius: 10px;
+}
+
+#proces_monitor::-webkit-scrollbar-thumb {
+    background: rgba(79, 172, 254, 0.5);
+    border-radius: 10px;
+}
+
+#proces_monitor::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 172, 254, 0.8);
+}
+#proces_monitor tr,th,td{
+    text-align: ;
+}
+#tabelka{
+    text-align: left;
+}
